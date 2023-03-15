@@ -1,0 +1,10 @@
+Package: commonTools
+Title: Used for data processing, and drawing plots.
+Version: 0.0.0.9000
+Authors@R: 
+    person("Tao", "Li", , "lp1559345469@gmail.com", role = c("aut", "cre"))
+Description: I packed common-used tools in data processing and drawing plots.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
