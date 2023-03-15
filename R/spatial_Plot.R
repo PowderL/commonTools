@@ -1,3 +1,4 @@
+#' @export
 gen_raster_define <- function(value_cells, grid.extent = c(102.5, 105, 30, 31.5), grid.res=0.01) {
   # degree; west, east, south, north; longitude, latitude
   value_raster <- raster(extent(grid.extent), resolution=grid.res, crs="+proj=longlat +datum=WGS84")
@@ -13,7 +14,7 @@ gen_raster_define <- function(value_cells, grid.extent = c(102.5, 105, 30, 31.5)
   values(value_raster) <- r.values
   return (value_raster)
 }
-
+#' @export
 gen_grid_data <- function(ext, resolution){
   lon <- seq(ext[1] + resolution/2, ext[2] - resolution/2, by = resolution)
   lat <- seq(ext[3] + resolution/2, ext[4] - resolution/2, by = resolution)
@@ -23,7 +24,7 @@ gen_grid_data <- function(ext, resolution){
   grid$row001 <- ceiling((90 - grid$lat)/resolution)
   return (as.data.table(grid))
 }
-
+#' @export
 gen_grids_in_bounds <- function(map, resolution) {
   ext <- raster::extent(map)
   ext_outbound <- c(floor(ext[1]), ceiling(ext[2]), floor(ext[3]), ceiling(ext[4]))
@@ -35,7 +36,7 @@ gen_grids_in_bounds <- function(map, resolution) {
   grids_in_bouds <- grids.all[!is.na(values(mask_r)), ]
   return(grids_in_bouds)
 }
-
+#' @export
 gen_maps <- function(r.list, map, unit = "a", magnitude = 10){
   if (is.list(r.list)){
     r.season <- stack(r.list)
@@ -87,6 +88,7 @@ gen_maps <- function(r.list, map, unit = "a", magnitude = 10){
   )
   return (tmp)
 }
+#' @export
 gen_maps_bars <- function(r.list, map, unit = "a", breaks = seq(-1.5-0.01, 1+0.01, 0.001), labels = seq(-1.5, 1, 0.5)){
   if (is.list(r.list)){
     r.season <- stack(r.list)
@@ -146,7 +148,7 @@ gen_maps_bars <- function(r.list, map, unit = "a", breaks = seq(-1.5-0.01, 1+0.0
   )
   return (tmp)
 }
-
+#' @export
 gen_maps_bars_list <- function(r.list, map, unit = "a", breaks = seq(-1.5-0.01, 1+0.01, 0.001), labels = seq(-1.5, 1, 0.5)){
   breaks_label <- labels
   labels_label <- labels
